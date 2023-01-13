@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+/* Variables */
+:root {
+  /* primary */
+  --o: hsl(39, 88%, 58%);
+  --x: hsl(178, 50%, 48%);
+
+  /* neutral */
+  --DarkText: hsl(199, 35%, 19%);
+  --firstText: hsl(198, 23%, 72%);
+  --faintText: hsl(198, 15%, 45%);
+
+  /* Background */
+  --RadialGradient: hsl(202, 32%, 15%);
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+body {
+  color: black;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: var(--RadialGradient);
+  font-family: 'Righteous', cursive;
+}
+.App {
+  /* border: 1px solid red; */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.XandO {
+  font-size: 4rem;
+  justify-content: center;
+}
+.x {
+  color: var(--x);
+}
+.o {
+  color: var(--o);
+}
+.pickplayer {
+  border: 1px solid var(--DarkText);
+  background-color: var(--DarkText);
+  border-radius: 1.5rem;
+}
+.firsttext {
+  color: var(--firstText);
+  text-align: center;
+}
+.first-art {
+  border: 1px solid var(--RadialGradient);
+  background-color: var(--RadialGradient);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  width: 16rem;
+}
+.first-art p {
+  border: 1px solid var(--firstText);
+  background-color: var(--firstText);
+  border-radius: 12px;
+  color: var(--RadialGradient);
+  font-size: 2rem;
+  text-align: center;
+}
+.remin {
+  color: var(--faintText);
+  text-align: center;
+}
+.cpu,
+.player {
+  border: 1px solid red;
+  text-align: center;
+  font-size: 1.1rem;
+  border-radius: 1rem;
+  color: var(--RadialGradient);
+}
+.linnk {
+  text-decoration: none;
+}
+.cpu {
+  border: 1px solid var(--o);
+  background-color: var(--o);
+}
+.player {
+  border: 1px solid var(--x);
+  background-color: var(--x);
+}
+.sec-one {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  width: 19rem;
+}
+.XandOo {
+  margin-left: 0.8px !important;
+  font-size: 3.5rem;
+}
+.div-one {
+  border: 1px solid var(--DarkText);
+  height: 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  background-color: var(--DarkText);
+  border-radius: 1rem;
+}
+.div-one p {
+  color: var(--firstText);
+  text-align: center;
+}
+.oo {
+  font-size: 30px;
+}
+.turn {
+  margin-top: 12px;
+  margin-left: -1.5rem !important;
+}
+.icon {
+  border: 1px solid var(--firstText);
+  color: var(--RadialGradient);
+  background-color: var(--firstText);
+  font-size: 2rem;
+  text-align: center;
+  height: 3rem;
+  border-radius: 1rem;
+  width: 3.5rem;
+  margin-left: 3rem !important;
+}
+.iconn {
+  margin-top: -10px;
+}
+.sec-two {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+.sec-two div,
+.sec-three div {
+  border-radius: 1rem;
+}
+.sec-two div {
+  border: 1px solid var(--DarkText);
+  background-color: var(--DarkText);
+  padding: 1.4rem;
+}
+.sec-three {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  grid-gap: 10px;
+  text-align: center;
+}
+.div-two {
+  border: 1px solid var(--x);
+  background-color: var(--x);
+}
+.div-p {
+  margin-top: -2.7rem;
+}
+.div-three {
+  border: 1px solid var(--firstText);
+  background-color: var(--firstText);
+}
+.div-four {
+  border: 1px solid var(--o);
+  background-color: var(--o);
+}
