@@ -12,6 +12,7 @@
 
   /* Background */
   --RadialGradient: hsl(202, 32%, 15%);
+  --box-shadow-color: 0px 7px 0px hsl(204, 32%, 9%);
 }
 
 *,
@@ -28,7 +29,7 @@ body {
   max-width: 1440px;
   margin: 0 auto;
   background-color: var(--RadialGradient);
-  font-family: 'Righteous', cursive;
+  font-family: 'Outfit', sans-serif;
 }
 .App {
   /* border: 1px solid red; */
@@ -114,6 +115,7 @@ body {
   grid-gap: 10px;
   background-color: var(--DarkText);
   border-radius: 1rem;
+  box-shadow: var(--box-shadow-color);
 }
 .div-one p {
   color: var(--firstText);
@@ -136,6 +138,7 @@ body {
   border-radius: 1rem;
   width: 3.5rem;
   margin-left: 3rem !important;
+  box-shadow: 0px 4px 0px var(--faintText);
 }
 .iconn {
   margin-top: -10px;
@@ -153,6 +156,7 @@ body {
   border: 1px solid var(--DarkText);
   background-color: var(--DarkText);
   padding: 1.4rem;
+  box-shadow: var(--box-shadow-color);
 }
 .sec-three {
   display: grid;
@@ -163,6 +167,7 @@ body {
 .div-two {
   border: 1px solid var(--x);
   background-color: var(--x);
+  height: 88%;
 }
 .div-p {
   margin-top: -2.7rem;
@@ -170,8 +175,59 @@ body {
 .div-three {
   border: 1px solid var(--firstText);
   background-color: var(--firstText);
+  height: 88%;
 }
 .div-four {
   border: 1px solid var(--o);
   background-color: var(--o);
+  height: 88%;
 }
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  width: 500px;
+  background-color: var(--DarkText);
+}
+.modal-body {
+  text-align: center;
+}
+.modal-body p {
+  color: var(--firstText);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.sec-five {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  font-weight: 600;
+}
+.cancel {
+  border: 1px solid var(--firstText);
+  border-radius: 12px;
+  background-color: var(--firstText);
+  box-shadow: 0px 4px 0px var(--faintText);
+  width: 70%;
+}
+.linnkk{
+  color: black;
+  text-decoration: none;
+}
+.restart {
+  border: 1px solid var(--o);
+  background-color: var(--o);
+  border-radius: 12px;
+  box-shadow: 0px 4px 0px orange;
+  width: 70%;
+}
+
