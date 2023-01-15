@@ -1,56 +1,76 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { MdRefresh } from 'react-icons/md'
 import Modal from './Modal'
+import { motion } from 'framer-motion'
+import { StoreContext } from '../contexts/StoreContext'
 
 const Cpu = () => {
   const [show, setShow] = useState(false)
-
+  const { xo } = useContext(StoreContext)
   return (
     <div>
-      <section className='sec-one'>
-        <article className='d-flex XandO XandOo mx-auto'>
-          <p className='x'>x</p>
-          <p className='o ms-1'>o</p>
-        </article>
-        <div className='div-one mt-4'>
-          <p className='oo'>o</p>
-          <p className='text-uppercase turn'>turn</p>
-        </div>
-        <section>
-          <article className='icon mt-4 ms-3' onClick={() => setShow(true)}>
-            <MdRefresh className='iconn' />
+      <motion.div
+        initial={{ opacity: 0, y: -200 }}
+        animate={{ opacity: 1, y: 0, transition: { duration: 0.9 } }}
+        exit={{ opacity: 0, y: -200, transition: { duration: 0.9 } }}
+      >
+        <section className='sec-one'>
+          <article className='d-flex XandO XandOo mx-auto'>
+            <p className='x'>x</p>
+            <p className='o ms-1'>o</p>
           </article>
-          <Modal show={show} onClose={() => setShow(false)} />
+          <div className='div-one mt-4'>
+            <p className='oo'>{xo}</p>
+            <p className='text-uppercase turn'>turn</p>
+          </div>
+          <section>
+            <article className='icon mt-4 ms-3' onClick={() => setShow(true)}>
+              <MdRefresh className='iconn' />
+            </article>
+            <Modal show={show} onClose={() => setShow(false)} />
+          </section>
         </section>
-      </section>
-      <section className='sec-two mt-2'>
-        <div className='p-4 p-md-5'>Item 1</div>
-        <div className='p-4 p-md-5'>Item 2</div>
-        <div className='p-4 p-md-5'>Item 3</div>
-        <div className='p-4 p-md-5'>Item 4</div>
-        <div className='p-4 p-md-5'>Item 5</div>
-        <div className='p-4 p-md-5'>Item 6</div>
-        <div className='p-4 p-md-5'>Item 7</div>
-        <div className='p-4 p-md-5'>Item 8</div>
-        <div className='p-4 p-md-5'>Item 9</div>
-      </section>
-      <section className='sec-three mt-4 text-uppercase'>
-        <div className='div-two p-md-2'>
-          <p className='mt-3'>x (cpu)</p>
-          <br />
-          <p className='div-p'>0</p>
-        </div>
-        <div className='div-three p-md-2'>
-          <p className='mt-3'>ties</p>
-          <br />
-          <p className='div-p'>0</p>
-        </div>
-        <div className='div-four p-md-2'>
-          <p className='mt-3'>o (you)</p>
-          <br />
-          <p className='div-p'>0</p>
-        </div>
-      </section>
+      </motion.div>
+      <motion.div
+        initial={{ x: -200 }}
+        animate={{ x: 0, transition: { duration: 0.9 } }}
+        exit={{ x: -200, transition: { duration: 0.9 } }}
+      >
+        <section className='sec-two mt-2'>
+          <div className='p-4 p-md-5'>{xo}</div>
+          <div className='p-4 p-md-5'>{xo}</div>
+          <div className='p-4 p-md-5'>{xo}</div>
+          <div className='p-4 p-md-5'>{xo}</div>
+          <div className='p-4 p-md-5'>{xo}</div>
+          <div className='p-4 p-md-5'>{xo}</div>
+          <div className='p-4 p-md-5'>{xo}</div>
+          <div className='p-4 p-md-5'>{xo}</div>
+          <div className='p-4 p-md-5'>{xo}</div>
+        </section>
+      </motion.div>
+      <motion.div
+        initial={{ y: 200 }}
+        animate={{ y: 0, transition: { duration: 0.9 } }}
+        exit={{ y: 200, transition: { duration: 0.9 } }}
+      >
+        <section className='sec-three mt-4 text-uppercase'>
+          <div className='div-two p-md-2'>
+            <p className='mt-3'>x (cpu)</p>
+            <br />
+            <p className='div-p'>0</p>
+          </div>
+          <div className='div-three p-md-2'>
+            <p className='mt-3'>ties</p>
+            <br />
+            <p className='div-p'>0</p>
+          </div>
+          <div className='div-four p-md-2'>
+            <p className='mt-3'>o (you)</p>
+            <br />
+            <p className='div-p'>0</p>
+          </div>
+        </section>
+      </motion.div>
     </div>
   )
 }

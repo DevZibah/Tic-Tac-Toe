@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { StoreContext } from '../contexts/StoreContext'
 
 const Home = () => {
+  const { setXo } = useContext(StoreContext)
   return (
     <div className=''>
       <motion.div
@@ -29,8 +31,12 @@ const Home = () => {
         <div className='pickplayer text-uppercase p-3'>
           <p className='firsttext'>pick player 1's mark</p>
           <article className='first-art p-2 align-middle'>
-            <p className='mt-3 x-one'>x</p>
-            <p className='mt-3 o-one'>o</p>
+            <p className='mt-3 x-one' onClick={() => setXo('x')}>
+              x
+            </p>
+            <p className='mt-3 o-one' onClick={() => setXo('o')}>
+              o
+            </p>
           </article>
           <p className='text-uppercase remin mt-3'>remember: X goes first</p>
         </div>

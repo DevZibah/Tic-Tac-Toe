@@ -157,8 +157,10 @@ body {
 .sec-two div {
   border: 1px solid var(--DarkText);
   background-color: var(--DarkText);
-  padding: 1.4rem;
+  padding: 2rem !important;
   box-shadow: var(--box-shadow-color);
+  font-size: 3rem;
+  text-align: center;
 }
 .sec-three {
   display: grid;
@@ -234,6 +236,10 @@ body {
 }
 
 @media (min-width: 768px) {
+  .sec-two div {
+    padding: 2rem !important;
+    width: 9rem;
+  }
   .pickplayer {
     width: 30rem;
   }
@@ -245,11 +251,11 @@ body {
     font-weight: 700;
   }
   .icon {
-    margin-left: 5rem !important;
+    margin-left: 5.2rem !important;
   }
   .div-one {
     width: 9rem;
-    margin-left: 4.5rem;
+    margin-left: 5rem;
   }
   .modal-content {
     width: 1000px;
@@ -271,6 +277,16 @@ body {
 @media (min-width: 1024px) {
   .XandOo {
     font-weight: 700;
+  }
+  .div-one {
+    margin-left: 6.4rem !important;
+  }
+  .icon {
+    margin-left: 6.6rem !important;
+  }
+  .sec-two div {
+    padding: 2rem !important;
+    width: 10rem !important;
   }
   .icon,
   .sec-two div,
