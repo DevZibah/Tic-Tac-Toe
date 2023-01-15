@@ -24,28 +24,28 @@ const Cpu = () => {
         </section>
       </section>
       <section className='sec-two mt-2'>
-        <div className='p-4'>Item 1</div>
-        <div className='p-4'>Item 2</div>
-        <div className='p-4'>Item 3</div>
-        <div className='p-4'>Item 4</div>
-        <div className='p-4'>Item 5</div>
-        <div className='p-4'>Item 6</div>
-        <div className='p-4'>Item 7</div>
-        <div className='p-4'>Item 8</div>
-        <div className='p-4'>Item 9</div>
+        <div className='p-4 p-md-5'>Item 1</div>
+        <div className='p-4 p-md-5'>Item 2</div>
+        <div className='p-4 p-md-5'>Item 3</div>
+        <div className='p-4 p-md-5'>Item 4</div>
+        <div className='p-4 p-md-5'>Item 5</div>
+        <div className='p-4 p-md-5'>Item 6</div>
+        <div className='p-4 p-md-5'>Item 7</div>
+        <div className='p-4 p-md-5'>Item 8</div>
+        <div className='p-4 p-md-5'>Item 9</div>
       </section>
       <section className='sec-three mt-4 text-uppercase'>
-        <div className='div-two'>
+        <div className='div-two p-md-2'>
           <p className='mt-3'>x (cpu)</p>
           <br />
           <p className='div-p'>0</p>
         </div>
-        <div className='div-three'>
+        <div className='div-three p-md-2'>
           <p className='mt-3'>ties</p>
           <br />
           <p className='div-p'>0</p>
         </div>
-        <div className='div-four'>
+        <div className='div-four p-md-2'>
           <p className='mt-3'>o (you)</p>
           <br />
           <p className='div-p'>0</p>
