@@ -4,7 +4,8 @@ import { motion } from 'framer-motion'
 import { StoreContext } from '../contexts/StoreContext'
 
 const Home = () => {
-  const { setXo } = useContext(StoreContext)
+  const { setUser } = useContext(StoreContext)
+
   return (
     <div className=''>
       <motion.div
@@ -31,10 +32,10 @@ const Home = () => {
         <div className='pickplayer text-uppercase p-3'>
           <p className='firsttext'>pick player 1's mark</p>
           <article className='first-art p-2 align-middle'>
-            <p className='mt-3 x-one' onClick={() => setXo('x')}>
+            <p className='mt-3 x-one' onClick={() => setUser('x')}>
               x
             </p>
-            <p className='mt-3 o-one' onClick={() => setXo('o')}>
+            <p className='mt-3 o-one' onClick={() => setUser('o')}>
               o
             </p>
           </article>

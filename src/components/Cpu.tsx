@@ -3,10 +3,11 @@ import { MdRefresh } from 'react-icons/md'
 import Modal from './Modal'
 import { motion } from 'framer-motion'
 import { StoreContext } from '../contexts/StoreContext'
+import Square from './Square'
 
 const Cpu = () => {
   const [show, setShow] = useState(false)
-  const { xo } = useContext(StoreContext)
+  const { newsquare } = useContext(StoreContext)
   return (
     <div>
       <motion.div
@@ -20,7 +21,7 @@ const Cpu = () => {
             <p className='o ms-1'>o</p>
           </article>
           <div className='div-one mt-4'>
-            <p className='oo'>{xo}</p>
+            <p className='oo'>x</p>
             <p className='text-uppercase turn'>turn</p>
           </div>
           <section>
@@ -37,15 +38,9 @@ const Cpu = () => {
         exit={{ x: -200, transition: { duration: 0.9 } }}
       >
         <section className='sec-two mt-2'>
-          <div className='p-4 p-md-5'>{xo}</div>
-          <div className='p-4 p-md-5'>{xo}</div>
-          <div className='p-4 p-md-5'>{xo}</div>
-          <div className='p-4 p-md-5'>{xo}</div>
-          <div className='p-4 p-md-5'>{xo}</div>
-          <div className='p-4 p-md-5'>{xo}</div>
-          <div className='p-4 p-md-5'>{xo}</div>
-          <div className='p-4 p-md-5'>{xo}</div>
-          <div className='p-4 p-md-5'>{xo}</div>
+          {newsquare.map((sq, id) => (
+            <Square key={id} />
+          ))}
         </section>
       </motion.div>
       <motion.div

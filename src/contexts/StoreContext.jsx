@@ -5,11 +5,15 @@ export const StoreContext = createContext()
 
 const StoreContextProvider = ({ children }) => {
   const [xo, setXo] = useState('')
-  console.log(xo)
+  const [user, setUser] = useState('')
+  const newsquare = ['', '', '', '', '', '', '', '', '']
   return (
     <StoreContext.Provider
       value={{
         xo,
+        newsquare,
+        user,
+        setUser,
         setXo,
       }}
     >

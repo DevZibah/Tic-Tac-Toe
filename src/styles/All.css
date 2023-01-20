@@ -148,7 +148,7 @@ body {
 .sec-two {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  grid-gap: 20px;
 }
 .sec-two div,
 .sec-three div {
@@ -157,10 +157,16 @@ body {
 .sec-two div {
   border: 1px solid var(--DarkText);
   background-color: var(--DarkText);
-  padding: 2rem !important;
+  padding: 1.7rem !important;
   box-shadow: var(--box-shadow-color);
-  font-size: 3rem;
+  font-size: 30px;
+  font-weight: 800;
+  height: 80px;
+}
+.sec-two div p {
   text-align: center;
+  margin-top: -0.5rem;
+  text-transform: uppercase;
 }
 .sec-three {
   display: grid;
@@ -239,6 +245,10 @@ body {
   .sec-two div {
     padding: 2rem !important;
     width: 9rem;
+    height: 100px;
+  }
+  .sec-two div p {
+    margin-top: -0.5rem;
   }
   .pickplayer {
     width: 30rem;
@@ -251,7 +261,7 @@ body {
     font-weight: 700;
   }
   .icon {
-    margin-left: 5.2rem !important;
+    margin-left: 6.3rem !important;
   }
   .div-one {
     width: 9rem;
@@ -282,11 +292,15 @@ body {
     margin-left: 6.4rem !important;
   }
   .icon {
-    margin-left: 6.6rem !important;
+    margin-left: 7.8rem !important;
   }
   .sec-two div {
     padding: 2rem !important;
     width: 10rem !important;
+    height: 120px;
+  }
+   .sec-two div p {
+    margin-top: .1rem;
   }
   .icon,
   .sec-two div,
