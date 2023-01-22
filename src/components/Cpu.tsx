@@ -7,7 +7,8 @@ import Square from './Square'
 
 const Cpu = () => {
   const [show, setShow] = useState(false)
-  const { newsquare } = useContext(StoreContext)
+  const { newsquare, turn } = useContext(StoreContext)
+
   return (
     <div>
       <motion.div
@@ -21,7 +22,7 @@ const Cpu = () => {
             <p className='o ms-1'>o</p>
           </article>
           <div className='div-one mt-4'>
-            <p className='oo'>x</p>
+            <p className='oo'>{turn}</p>
             <p className='text-uppercase turn'>turn</p>
           </div>
           <section>
@@ -38,8 +39,8 @@ const Cpu = () => {
         exit={{ x: -200, transition: { duration: 0.9 } }}
       >
         <section className='sec-two mt-2'>
-          {newsquare.map((sq, id) => (
-            <Square key={id} />
+          {newsquare.map((square, id) => (
+            <Square key={id} square={square} id={id} />
           ))}
         </section>
       </motion.div>

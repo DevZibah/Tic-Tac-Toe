@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { StoreContext } from '../contexts/StoreContext'
 
 const Modal = (props) => {
   if (!props.show) {
     return null
   }
-
+  const { restartGame } = useContext(StoreContext)
   return (
     <div>
       <div className='modal'>
@@ -18,7 +19,7 @@ const Modal = (props) => {
               <p className='p-2 cancel ms-5 p-md-3' onClick={props.onClose}>
                 no, cancel
               </p>
-              <Link to='/' className='linnkk'>
+              <Link to='/' className='linnkk' onClick={restartGame}>
                 <p className='p-2 restart p-md-3'>yes, restart</p>
               </Link>
             </section>
