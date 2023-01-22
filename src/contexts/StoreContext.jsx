@@ -5,10 +5,13 @@ export const StoreContext = createContext()
 
 const StoreContextProvider = ({ children }) => {
   const [user, setUser] = useState('')
+  const [cpu, setCpu] = useState('')
+  const [Player1, setPlayer1] = useState('x')
   const clearState = ['', '', '', '', '', '', '', '', '']
   const [newsquare, setNewsquare] = useState(clearState)
   const [turn, setTurn] = useState('')
   const [result, setResult] = useState({ winner: 'none', state: 'none' })
+  const [turrn, setTurrn] = useState(false)
 
   const restartGame = () => {
     setNewsquare(clearState)
@@ -25,15 +28,14 @@ const StoreContextProvider = ({ children }) => {
     [2, 4, 6],
   ]
 
-  console.log('user is', user)
-
   const SquareClick = (id) => {
     //update the value of the square to which ever player that's playing
     //if you click on a square, this function loops through newsquare array and change the id of that square from an empty string to a new value string that is if that square is empty
     setNewsquare(
       newsquare.map((square, idx) => {
         if (idx == id && square == '') {
-          return user
+          return turrn ? user : cpu
+          // return user
         }
         //else return the current value(empty string)
         return square
@@ -46,7 +48,8 @@ const StoreContextProvider = ({ children }) => {
     //check to see if it's filled by same player
     Patterns.forEach((currPattern) => {
       //determine the first player that exist at that index ex: [0,1,2]
-      const Player1 = newsquare[currPattern[0]]
+      setPlayer1(newsquare[currPattern[0]])
+      // const Player1 = newsquare[currPattern[0]]
       if (Player1 == '') return
       let foundWinningPattern = true
       //check if the other players are equal to the first player
@@ -57,10 +60,13 @@ const StoreContextProvider = ({ children }) => {
       })
 
       if (foundWinningPattern) {
-        setResult({ winner: user, state: 'won' })
+        setResult({ winner: Player1, state: 'won' })
       }
     })
   }
+
+  console.log('user is', user)
+  console.log('cpu is', cpu)
 
   const CheckTie = () => {
     let filled = true
@@ -80,10 +86,14 @@ const StoreContextProvider = ({ children }) => {
     CheckTie()
 
     if (user === 'x') {
-      setUser('o')
+      // setUser('o')
+      // setCpu('o')
+      setTurrn(!turrn)
       setTurn('o')
     } else {
-      setUser('x')
+      // setUser('x')
+      // setCpu('x')
+      setTurrn(!turrn)
       setTurn('x')
     }
   }, [newsquare])
@@ -102,6 +112,10 @@ const StoreContextProvider = ({ children }) => {
         newsquare,
         user,
         turn,
+        turrn,
+        cpu,
+        setCpu,
+        setTurrn,
         setUser,
         setTurn,
         setNewsquare,
