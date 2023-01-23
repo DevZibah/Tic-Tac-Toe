@@ -7,7 +7,8 @@ import Square from './Square'
 
 const Cpu = () => {
   const [show, setShow] = useState(false)
-  const { newsquare, turn, turrn, user, cpu } = useContext(StoreContext)
+  const { newsquare, turn, turrn, user, cpu, setTurn } =
+    useContext(StoreContext)
 
   return (
     <div>

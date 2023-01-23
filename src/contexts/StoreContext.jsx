@@ -9,9 +9,9 @@ const StoreContextProvider = ({ children }) => {
   const [Player1, setPlayer1] = useState('x')
   const clearState = ['', '', '', '', '', '', '', '', '']
   const [newsquare, setNewsquare] = useState(clearState)
-  const [turn, setTurn] = useState('')
+  const [turn, setTurn] = useState('x')
   const [result, setResult] = useState({ winner: 'none', state: 'none' })
-  const [turrn, setTurrn] = useState(false)
+  const [turrn, setTurrn] = useState()
 
   const restartGame = () => {
     setNewsquare(clearState)
@@ -61,13 +61,13 @@ const StoreContextProvider = ({ children }) => {
 
       if (foundWinningPattern) {
         //checks if the winning player1 is user or cpu
-        setResult({ winner: Player1 == user ? user : cpu, state: 'won' })
+        setResult({
+          winner: Player1 === currPattern[0] ? user : cpu,
+          state: 'won',
+        })
       }
     })
   }
-
-  console.log('user is', user)
-  console.log('cpu is', cpu)
 
   const CheckTie = () => {
     let filled = true
@@ -87,15 +87,15 @@ const StoreContextProvider = ({ children }) => {
     CheckTie()
 
     if (user === 'x') {
-      // setUser('o')
+      // setUser('x')
       // setCpu('o')
       setTurrn(!turrn)
-      setTurn('o')
+      // setTurn('x')
     } else {
-      // setUser('x')
+      // setUser('o')
       // setCpu('x')
       setTurrn(!turrn)
-      setTurn('x')
+      // setTurn('o')
     }
   }, [newsquare])
 
@@ -107,16 +107,24 @@ const StoreContextProvider = ({ children }) => {
     }
   }, [result])
 
+  console.log('user is', user)
+  console.log('cpu is', cpu)
+  console.log('turn is', turn)
+  console.log('result is', result.winner)
+
   return (
     <StoreContext.Provider
       value={{
         newsquare,
+        clearState,
+        result,
         user,
         turn,
         turrn,
         cpu,
         setCpu,
         setTurrn,
+        setResult,
         setUser,
         setTurn,
         setNewsquare,

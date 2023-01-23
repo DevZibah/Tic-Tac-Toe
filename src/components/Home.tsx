@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { StoreContext } from '../contexts/StoreContext'
 
 const Home = () => {
-  const { setUser, setTurn, setCpu, setTurrn } = useContext(StoreContext)
+  const { setUser, setTurn, setCpu, setTurrn, turrn } = useContext(StoreContext)
 
   return (
     <div className=''>
@@ -34,13 +34,17 @@ const Home = () => {
           <article className='first-art p-2 align-middle'>
             <p
               className='mt-3 x-one'
-              onClick={() => (setUser('x'), setTurn('x'), setCpu('o'))}
+              onClick={() => (
+                setUser('x'), setTurn('x'), setCpu('o'), setTurrn(true)
+              )}
             >
               x
             </p>
             <p
               className='mt-3 o-one'
-              onClick={() => (setUser('o'), setTurn('o'), setCpu('x'))}
+              onClick={() => (
+                setUser('o'), setTurn('o'), setCpu('x'), setTurrn(true)
+              )}
             >
               o
             </p>
