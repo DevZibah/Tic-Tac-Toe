@@ -60,7 +60,8 @@ const StoreContextProvider = ({ children }) => {
       })
 
       if (foundWinningPattern) {
-        setResult({ winner: Player1, state: 'won' })
+        //checks if the winning player1 is user or cpu
+        setResult({ winner: Player1 == user ? user : cpu, state: 'won' })
       }
     })
   }
