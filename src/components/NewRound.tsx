@@ -2,10 +2,7 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { StoreContext } from '../contexts/StoreContext'
 
-const Modal = (props) => {
-  if (!props.show) {
-    return null
-  }
+const NewRound = () => {
   const {
     restartGame,
     setTurn,
@@ -16,18 +13,17 @@ const Modal = (props) => {
     setCounter,
     setKey,
   } = useContext(StoreContext)
+
   return (
     <div>
       <div className='modal'>
         <div className='modal-dialog'>
           <div className='modal-content p-5'>
             <div className='modal-body text-uppercase'>
-              <p>restart game?</p>
+              <p className='won'>You won!</p>
+              <p className='round'>X takes the round</p>
             </div>
             <section className='sec-five text-uppercase'>
-              <p className='p-2 cancel ms-5 p-md-3' onClick={props.onClose}>
-                no, cancel
-              </p>
               <Link
                 to='/'
                 className='linnkk'
@@ -44,8 +40,14 @@ const Modal = (props) => {
                   )
                 )}
               >
-                <p className='p-2 restart p-md-3'>yes, restart</p>
+                <p className='p-2 cancel ms-5 p-md-3'>quit</p>
               </Link>
+              <p
+                className='p-2 restart p-md-3'
+                onClick={() => (restartGame(), setKey(false))}
+              >
+                next round
+              </p>
             </section>
           </div>
         </div>
@@ -54,4 +56,4 @@ const Modal = (props) => {
   )
 }
 
-export default Modal
+export default NewRound

@@ -1,13 +1,14 @@
 import React, { useState, useContext } from 'react'
 import { MdRefresh } from 'react-icons/md'
 import Modal from './Modal'
+import NewRound from './NewRound'
 import { motion } from 'framer-motion'
 import { StoreContext } from '../contexts/StoreContext'
 import Square from './Square'
 
 const Cpu = () => {
   const [show, setShow] = useState(false)
-  const { newsquare, turrn, user, cpu, result, score, counter } =
+  const { newsquare, turrn, user, cpu, result, score, counter, key } =
     useContext(StoreContext)
 
   return (
@@ -68,6 +69,7 @@ const Cpu = () => {
           </div>
         </section>
       </motion.div>
+      {key ? <NewRound /> : ''}
     </div>
   )
 }

@@ -13,6 +13,7 @@ const StoreContextProvider = ({ children }) => {
   const [turrn, setTurrn] = useState()
   const [score, setScore] = useState(0)
   const [counter, setCounter] = useState(0)
+  const [key, setKey] = useState(false)
 
   const restartGame = () => {
     setNewsquare(clearState)
@@ -104,7 +105,8 @@ const StoreContextProvider = ({ children }) => {
   //alert the result when it changes
   useEffect(() => {
     if (result.state !== 'none') {
-      alert('game ended! winning player:' + result.winner)
+      setKey(true)
+      // alert('game ended! winning player:' + result.winner)
       // restartGame()
     }
   }, [result])
@@ -113,8 +115,9 @@ const StoreContextProvider = ({ children }) => {
   console.log('cpu is', cpu)
   console.log('turn is', turn)
   console.log('user score is', score)
+  console.log('cpu score is', counter)
   console.log('result is', result.winner)
-
+  console.log(key)
   return (
     <StoreContext.Provider
       value={{
@@ -127,6 +130,8 @@ const StoreContextProvider = ({ children }) => {
         cpu,
         score,
         counter,
+        key,
+        setKey,
         setScore,
         setCounter,
         setCpu,
