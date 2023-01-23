@@ -6,7 +6,6 @@ export const StoreContext = createContext()
 const StoreContextProvider = ({ children }) => {
   const [user, setUser] = useState('')
   const [cpu, setCpu] = useState('')
-  const [Player1, setPlayer1] = useState('x')
   const clearState = ['', '', '', '', '', '', '', '', '']
   const [newsquare, setNewsquare] = useState(clearState)
   const [turn, setTurn] = useState('x')
@@ -48,8 +47,7 @@ const StoreContextProvider = ({ children }) => {
     //check to see if it's filled by same player
     Patterns.forEach((currPattern) => {
       //determine the first player that exist at that index ex: [0,1,2]
-      setPlayer1(newsquare[currPattern[0]])
-      // const Player1 = newsquare[currPattern[0]]
+      const Player1 = newsquare[currPattern[0]]
       if (Player1 == '') return
       let foundWinningPattern = true
       //check if the other players are equal to the first player
@@ -62,7 +60,7 @@ const StoreContextProvider = ({ children }) => {
       if (foundWinningPattern) {
         //checks if the winning player1 is user or cpu
         setResult({
-          winner: Player1 === currPattern[0] ? user : cpu,
+          winner: Player1 === user ? user : cpu,
           state: 'won',
         })
       }
