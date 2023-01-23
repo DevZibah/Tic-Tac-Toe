@@ -13,6 +13,7 @@ const StoreContextProvider = ({ children }) => {
   const [turrn, setTurrn] = useState()
   const [score, setScore] = useState(0)
   const [counter, setCounter] = useState(0)
+  const [ties, setTies] = useState(0)
   const [key, setKey] = useState(false)
 
   const restartGame = () => {
@@ -66,8 +67,14 @@ const StoreContextProvider = ({ children }) => {
           winner: Player1 === user ? user : cpu,
           state: 'won',
         })
-        setScore(Player1 === user ? score + 1 : 0)
-        setCounter(Player1 === cpu ? counter + 1 : 0)
+        if (Player1 === user) {
+          setScore(score + 1)
+        } else if (Player1 === cpu) {
+          setCounter(counter + 1)
+        } else {
+          setScore(0)
+          setCounter(0)
+        }
       }
     })
   }
@@ -81,6 +88,12 @@ const StoreContextProvider = ({ children }) => {
     })
     if (filled) {
       setResult({ winner: 'no one', state: 'tie' })
+      if (filled) {
+        setTies(ties + 1)
+      } else {
+        setCounter(counter)
+        setScore(score)
+      }
     }
   }
 
@@ -106,8 +119,6 @@ const StoreContextProvider = ({ children }) => {
   useEffect(() => {
     if (result.state !== 'none') {
       setKey(true)
-      // alert('game ended! winning player:' + result.winner)
-      // restartGame()
     }
   }, [result])
 
@@ -131,6 +142,8 @@ const StoreContextProvider = ({ children }) => {
         score,
         counter,
         key,
+        ties,
+        setTies,
         setKey,
         setScore,
         setCounter,

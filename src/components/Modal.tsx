@@ -15,6 +15,7 @@ const Modal = (props) => {
     setScore,
     setCounter,
     setKey,
+    setTies,
   } = useContext(StoreContext)
   return (
     <div>
@@ -40,6 +41,7 @@ const Modal = (props) => {
                     setCpu(''),
                     setScore(0),
                     setCounter(0),
+                    setTies(0),
                     setKey(false)
                   )
                 )}

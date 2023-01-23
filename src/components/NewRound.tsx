@@ -12,6 +12,10 @@ const NewRound = () => {
     setScore,
     setCounter,
     setKey,
+    setTies,
+    user,
+    cpu,
+    result,
   } = useContext(StoreContext)
 
   return (
@@ -20,8 +24,20 @@ const NewRound = () => {
         <div className='modal-dialog'>
           <div className='modal-content p-5'>
             <div className='modal-body text-uppercase'>
-              <p className='won'>You won!</p>
-              <p className='round'>X takes the round</p>
+              <p className='won'>
+                {result.winner === user
+                  ? 'you won !'
+                  : result.winner === cpu
+                  ? 'you lost!'
+                  : 'ties'}
+              </p>
+              <p className='round'>
+                {result.winner === user
+                  ? user + ' takes the round'
+                  : result.winner === cpu
+                  ? cpu + ' takes the round'
+                  : 'It was a tie'}
+              </p>
             </div>
             <section className='sec-five text-uppercase'>
               <Link
@@ -36,6 +52,7 @@ const NewRound = () => {
                     setCpu(''),
                     setScore(0),
                     setCounter(0),
+                    setTies(0),
                     setKey(false)
                   )
                 )}
