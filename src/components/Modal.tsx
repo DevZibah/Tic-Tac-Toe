@@ -6,7 +6,7 @@ const Modal = (props) => {
   if (!props.show) {
     return null
   }
-  const { restartGame, setTurn, setResult, setUser, setCpu } =
+  const { restartGame, setTurn, setResult, setUser, setCpu, setScore, setCounter } =
     useContext(StoreContext)
   return (
     <div>
@@ -29,7 +29,9 @@ const Modal = (props) => {
                   setResult(
                     { winner: 'none', state: 'none' },
                     setUser(''),
-                    setCpu('')
+                    setCpu(''),
+                    setScore(0),
+                    setCounter(0)
                   )
                 )}
               >

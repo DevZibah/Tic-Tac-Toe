@@ -11,6 +11,8 @@ const StoreContextProvider = ({ children }) => {
   const [turn, setTurn] = useState('x')
   const [result, setResult] = useState({ winner: 'none', state: 'none' })
   const [turrn, setTurrn] = useState()
+  const [score, setScore] = useState(0)
+  const [counter, setCounter] = useState(0)
 
   const restartGame = () => {
     setNewsquare(clearState)
@@ -63,6 +65,8 @@ const StoreContextProvider = ({ children }) => {
           winner: Player1 === user ? user : cpu,
           state: 'won',
         })
+        setScore(Player1 === user ? score + 1 : 0)
+        setCounter(Player1 === cpu ? counter + 1 : 0)
       }
     })
   }
@@ -108,6 +112,7 @@ const StoreContextProvider = ({ children }) => {
   console.log('user is', user)
   console.log('cpu is', cpu)
   console.log('turn is', turn)
+  console.log('user score is', score)
   console.log('result is', result.winner)
 
   return (
@@ -120,6 +125,10 @@ const StoreContextProvider = ({ children }) => {
         turn,
         turrn,
         cpu,
+        score,
+        counter,
+        setScore,
+        setCounter,
         setCpu,
         setTurrn,
         setResult,
