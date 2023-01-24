@@ -31,7 +31,19 @@ const NewRound = () => {
                   ? 'you lost!'
                   : 'ties!'}
               </p>
-              <p className='round'>
+              <p
+                className='round'
+                style={{
+                  color:
+                    (result.winner === user && user === 'x') ||
+                    (result.winner === cpu && cpu === 'x')
+                      ? 'hsl(178, 50%, 48%)'
+                      : (result.winner === user && user === 'o') ||
+                        (result.winner === cpu && cpu === 'o')
+                      ? 'hsl(39, 88%, 58%)'
+                      : 'hsl(198, 23%, 72%)',
+                }}
+              >
                 {result.winner === user
                   ? user + ' takes the round'
                   : result.winner === cpu
