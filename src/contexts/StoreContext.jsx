@@ -87,13 +87,12 @@ const StoreContextProvider = ({ children }) => {
       }
     })
     if (filled) {
-      setResult({ winner: 'no one', state: 'tie' })
-      if (filled) {
+      setResult({ winner: 'nobody', state: 'tie' })
+      if (filled === true) {
         setTies(ties + 1)
-      } else {
         setCounter(counter)
         setScore(score)
-      }
+      } 
     }
   }
 
@@ -103,15 +102,9 @@ const StoreContextProvider = ({ children }) => {
     CheckTie()
 
     if (user === 'x') {
-      // setUser('x')
-      // setCpu('o')
       setTurrn(!turrn)
-      // setTurn('x')
     } else {
-      // setUser('o')
-      // setCpu('x')
       setTurrn(!turrn)
-      // setTurn('o')
     }
   }, [newsquare])
 

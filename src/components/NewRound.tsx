@@ -29,7 +29,7 @@ const NewRound = () => {
                   ? 'you won !'
                   : result.winner === cpu
                   ? 'you lost!'
-                  : 'ties'}
+                  : 'ties!'}
               </p>
               <p className='round'>
                 {result.winner === user
