@@ -28,8 +28,8 @@ const NewRound = () => {
                 {result.winner === user
                   ? 'you won !'
                   : result.winner === cpu
-                  ? 'you lost!'
-                  : 'ties!'}
+                  ? 'you lost !'
+                  : 'ties !'}
               </p>
               <p
                 className='round'

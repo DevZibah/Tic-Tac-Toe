@@ -38,7 +38,7 @@ const StoreContextProvider = ({ children }) => {
       newsquare.map((square, idx) => {
         if (idx == id && square == '') {
           return turrn ? user : cpu
-          // return user
+          // return user if turrn is true, else return cpu
         }
         //else return the current value(empty string)
         return square
@@ -82,7 +82,7 @@ const StoreContextProvider = ({ children }) => {
   const CheckTie = () => {
     let filled = true
     newsquare.forEach((sq) => {
-      if (sq == '') {
+      if (sq === '') {
         filled = false
       }
     })
@@ -92,14 +92,14 @@ const StoreContextProvider = ({ children }) => {
         setTies(ties + 1)
         setCounter(counter)
         setScore(score)
-      } 
+      }
     }
   }
 
   //use this hook to check everytime the newsquare has changed
   useEffect(() => {
-    CheckWinner()
     CheckTie()
+    CheckWinner()
 
     if (user === 'x') {
       setTurrn(!turrn)
@@ -120,7 +120,7 @@ const StoreContextProvider = ({ children }) => {
   console.log('turn is', turn)
   console.log('user score is', score)
   console.log('cpu score is', counter)
-  console.log('result is', result.winner)
+  console.log('result is', result.state)
   console.log(key)
   return (
     <StoreContext.Provider
