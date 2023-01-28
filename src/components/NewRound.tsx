@@ -8,13 +8,13 @@ const NewRound = () => {
     setTurn,
     setResult,
     setUser,
-    setCpu,
+    setPlayer,
     setScore,
     setCounter,
     setKey,
     setTies,
     user,
-    cpu,
+    player,
     result,
   } = useContext(StoreContext)
 
@@ -27,7 +27,7 @@ const NewRound = () => {
               <p className='won'>
                 {result.winner === user
                   ? 'you won !'
-                  : result.winner === cpu
+                  : result.winner === player
                   ? 'you lost !'
                   : 'ties !'}
               </p>
@@ -36,18 +36,18 @@ const NewRound = () => {
                 style={{
                   color:
                     (result.winner === user && user === 'x') ||
-                    (result.winner === cpu && cpu === 'x')
+                    (result.winner === player && player === 'x')
                       ? 'hsl(178, 50%, 48%)'
                       : (result.winner === user && user === 'o') ||
-                        (result.winner === cpu && cpu === 'o')
+                        (result.winner === player && player === 'o')
                       ? 'hsl(39, 88%, 58%)'
                       : 'hsl(198, 23%, 72%)',
                 }}
               >
                 {result.winner === user
                   ? user + ' takes the round'
-                  : result.winner === cpu
-                  ? cpu + ' takes the round'
+                  : result.winner === player
+                  ? player + ' takes the round'
                   : 'It was a tie'}
               </p>
             </div>
@@ -61,7 +61,7 @@ const NewRound = () => {
                   setResult(
                     { winner: 'none', state: 'none' },
                     setUser(''),
-                    setCpu(''),
+                    setPlayer(''),
                     setScore(0),
                     setCounter(0),
                     setTies(0),

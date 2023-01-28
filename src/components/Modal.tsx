@@ -11,7 +11,7 @@ const Modal = (props) => {
     setTurn,
     setResult,
     setUser,
-    setCpu,
+    setPlayer,
     setScore,
     setCounter,
     setKey,
@@ -38,7 +38,7 @@ const Modal = (props) => {
                   setResult(
                     { winner: 'none', state: 'none' },
                     setUser(''),
-                    setCpu(''),
+                    setPlayer(''),
                     setScore(0),
                     setCounter(0),
                     setTies(0),

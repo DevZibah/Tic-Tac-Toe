@@ -6,9 +6,9 @@ import { motion } from 'framer-motion'
 import { StoreContext } from '../contexts/StoreContext'
 import Square from './Square'
 
-const Cpu = () => {
+const player = () => {
   const [show, setShow] = useState(false)
-  const { newsquare, turrn, user, cpu, score, counter, key, ties } =
+  const { newsquare, turrn, user, player, score, counter, key, ties } =
     useContext(StoreContext)
 
   return (
@@ -24,7 +24,7 @@ const Cpu = () => {
             <p className='o ms-1'>o</p>
           </article>
           <div className='div-one mt-4'>
-            <p className='oo'>{turrn ? user : cpu}</p>
+            <p className='oo'>{turrn ? user : player}</p>
             <p className='text-uppercase turn'>turn</p>
           </div>
           <section>
@@ -53,7 +53,7 @@ const Cpu = () => {
       >
         <section className='sec-three mt-4 text-uppercase'>
           <div className='div-two p-md-2'>
-            <p className='mt-3'>{cpu} (cpu)</p>
+            <p className='mt-3'>{player} (player)</p>
             <br />
             <p className='div-p'>{counter}</p>
           </div>
@@ -74,4 +74,4 @@ const Cpu = () => {
   )
 }
 
-export default Cpu
+export default player

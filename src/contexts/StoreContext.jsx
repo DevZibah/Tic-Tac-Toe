@@ -5,7 +5,7 @@ export const StoreContext = createContext()
 
 const StoreContextProvider = ({ children }) => {
   const [user, setUser] = useState('')
-  const [cpu, setCpu] = useState('')
+  const [player, setPlayer] = useState('')
   const clearState = ['', '', '', '', '', '', '', '', '']
   const [newsquare, setNewsquare] = useState(clearState)
   const [turn, setTurn] = useState('x')
@@ -31,14 +31,14 @@ const StoreContextProvider = ({ children }) => {
     [2, 4, 6],
   ]
 
-  const SquareClick = (id) => {
+  const PlayerClick = (id) => {
     //update the value of the square to which ever player that's playing
     //if you click on a square, this function loops through newsquare array and change the id of that square from an empty string to a new value string that is if that square is empty
     setNewsquare(
       newsquare.map((square, idx) => {
         if (idx == id && square == '') {
-          return turrn ? user : cpu
-          // return user if turrn is true, else return cpu
+          return turrn ? user : player
+          // return user if turrn is true, else return player
         }
         //else return the current value(empty string)
         return square
@@ -62,14 +62,14 @@ const StoreContextProvider = ({ children }) => {
       })
 
       if (foundWinningPattern) {
-        //checks if the winning player1 is user or cpu
+        //checks if the winning player1 is user or player
         setResult({
-          winner: Player1 === user ? user : cpu,
+          winner: Player1 === user ? user : player,
           state: 'won',
         })
         if (Player1 === user) {
           setScore(score + 1)
-        } else if (Player1 === cpu) {
+        } else if (Player1 === player) {
           setCounter(counter + 1)
         } else {
           setScore(0)
@@ -95,12 +95,10 @@ const StoreContextProvider = ({ children }) => {
       }
     }
   }
-
   //use this hook to check everytime the newsquare has changed
   useEffect(() => {
     CheckTie()
     CheckWinner()
-
     if (user === 'x') {
       setTurrn(!turrn)
     } else {
@@ -116,12 +114,13 @@ const StoreContextProvider = ({ children }) => {
   }, [result])
 
   console.log('user is', user)
-  console.log('cpu is', cpu)
+  console.log('player is', player)
   console.log('turn is', turn)
   console.log('user score is', score)
-  console.log('cpu score is', counter)
+  console.log('player score is', counter)
   console.log('result is', result.state)
   console.log(key)
+
   return (
     <StoreContext.Provider
       value={{
@@ -131,7 +130,7 @@ const StoreContextProvider = ({ children }) => {
         user,
         turn,
         turrn,
-        cpu,
+        player,
         score,
         counter,
         key,
@@ -140,14 +139,14 @@ const StoreContextProvider = ({ children }) => {
         setKey,
         setScore,
         setCounter,
-        setCpu,
+        setPlayer,
         setTurrn,
         setResult,
         setUser,
         setTurn,
         setNewsquare,
         restartGame,
-        SquareClick,
+        PlayerClick,
       }}
     >
       {children}
