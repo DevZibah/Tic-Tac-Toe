@@ -6,6 +6,7 @@ export const StoreContext = createContext()
 const StoreContextProvider = ({ children }) => {
   const [user, setUser] = useState('')
   const [player, setPlayer] = useState('')
+  const [time, setTime] = useState(0)
   const clearState = ['', '', '', '', '', '', '', '', '']
   const [newsquare, setNewsquare] = useState(clearState)
   const [turn, setTurn] = useState('x')
@@ -37,8 +38,16 @@ const StoreContextProvider = ({ children }) => {
     setNewsquare(
       newsquare.map((square, idx) => {
         if (idx == id && square == '') {
-          return turrn ? user : player
+          //if user is x return user because the game starts with x first
+          if (user == 'x') {
+            return turrn ? user : player
+          } else if (user == 'o') {
+            return turrn ? player : user
+          }
           // return user if turrn is true, else return player
+        } else if (idx == id && square != '') {
+          //if square is already occupied, and you click on it, set turrn not to change.
+          setTurrn(!turrn)
         }
         //else return the current value(empty string)
         return square
@@ -88,10 +97,12 @@ const StoreContextProvider = ({ children }) => {
     })
     if (filled) {
       setResult({ winner: 'nobody', state: 'tie' })
-      if (filled === true) {
+      if (filled && result.state === 'tie') {
         setTies(ties + 1)
         setCounter(counter)
         setScore(score)
+      } else {
+        setTies(ties + 1)
       }
     }
   }

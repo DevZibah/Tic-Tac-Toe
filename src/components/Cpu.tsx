@@ -24,7 +24,18 @@ const player = () => {
             <p className='o ms-1'>o</p>
           </article>
           <div className='div-one mt-4'>
-            <p className='oo'>{turrn ? user : player}</p>
+            <p className='oo'>
+              {/* {turrn ? user : player} */}
+              {user == 'x'
+                ? turrn
+                  ? user
+                  : player
+                : user == 'o'
+                ? turrn
+                  ? player
+                  : user
+                : ''}
+            </p>
             <p className='text-uppercase turn'>turn</p>
           </div>
           <section>
