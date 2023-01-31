@@ -78,8 +78,10 @@ const StoreContextProvider = ({ children }) => {
         })
         if (Player1 === user) {
           setScore(score + 1)
+          setTies(ties)
         } else if (Player1 === player) {
           setCounter(counter + 1)
+          setTies(ties)
         } else {
           setScore(0)
           setCounter(0)
@@ -97,12 +99,10 @@ const StoreContextProvider = ({ children }) => {
     })
     if (filled) {
       setResult({ winner: 'nobody', state: 'tie' })
-      if (filled && result.state === 'tie') {
+      if (filled) {
         setTies(ties + 1)
         setCounter(counter)
         setScore(score)
-      } else {
-        setTies(ties + 1)
       }
     }
   }
